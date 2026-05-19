@@ -279,11 +279,31 @@ function tick() {
   renderer.render(scene, camera);
 }
 
+
 window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+
+  camera.aspect = width / height;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+
+
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+
+  if (width < 768) {
+    camera.position.set(0, 2.2, 7.5); 
+  } else {
+    camera.position.set(0, 3, 6); 
+  }
 });
 
+if (window.innerWidth < 768) {
+  camera.position.set(0, 2.2, 7.5);
+}
+
+
 preloadAssets();
-tick();
+tick(); 
