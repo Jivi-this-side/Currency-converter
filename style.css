@@ -26,13 +26,26 @@ html, body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;  
+  height: 100vh;  
   z-index: 1;
   pointer-events: none;
+  display: block;
 }
 
-/* Hero Section Architecture */
+
+@media (max-width: 768px) {
+  .glass-card {
+    width: 90%; 
+    padding: 24px;
+  }
+  .glass-card h1 {
+    font-size: 2.2rem; 
+  }
+  .panel h2 {
+    font-size: 2rem; 
+  }
+}
 .hero {
   height: 100vh;
   display: flex;
